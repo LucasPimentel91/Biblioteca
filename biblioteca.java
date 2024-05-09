@@ -36,8 +36,19 @@ public class biblioteca {
 		texto.close();
 	}
 
+
+	public static void cadastrarLivro(){
+		Livro livro = new Livro();
+		livro.setTitulo(livro.cadastrarAtributos("titulo"));
+		livro.setAutor(livro.cadastrarAtributos("autor"));
+		livro.setNumPaginas(livro.cadastrarAtributoNumericos("Número de páginas"));
+		livro.setId(livro.cadastrarAtributoNumericos("Id do livro"));
+
+	}
+
 	public static void main(String[] args) {
 		cabecalho();
+		cadastrarLivro();
 
 	}
 
