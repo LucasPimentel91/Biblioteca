@@ -1,9 +1,9 @@
 package projeto_tomorrow;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class biblioteca {
-	
 	
 	public static void cabecalho() {
 		System.out.println("--------------------------");
@@ -36,7 +36,7 @@ public class biblioteca {
 		texto.close();
 	}
 
-	public static void main(String[] args) { 
+	public static void main(String[] args) {
 		cabecalho();
 
 	}
