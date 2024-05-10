@@ -1,3 +1,7 @@
+package projeto_tomorrow;
+
+import projeto_tomorrow.cliente;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -55,14 +59,13 @@ public class biblioteca {
         cliente cliente[]=new cliente[MAX];
         Scanner ler = new Scanner(System.in);
         while(true){
-            cabecalho();
-            if(cabecalho() == 0){
+            int resposta = cabecalho(); //pega o valor retornado pelo método e executa o mesmo.
+            if(resposta == 0){
                 break;
-
-            } else if(cabecalho() == 1){
+            } else if(resposta == 1){
                 cadastroCliente(cliente, qtdCliente);
 
-            } else if(cabecalho() ==  2){
+            } else if(resposta ==  2){
                 cadastrarLivro();
             } else{
                 return;

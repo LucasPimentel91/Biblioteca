@@ -30,14 +30,12 @@ public class Livro {
         Scanner get = new Scanner(System.in);
         System.out.print(atributo + " do livro: ");
         String atributoNome = get.nextLine();
-        System.out.println(atributoNome);
         return atributoNome;
     }
     public int cadastrarAtributoNumericos(String atributo){
         Scanner get = new Scanner(System.in);
         System.out.print(atributo + " do livro: ");
         int atributoNome = Integer.parseInt(get.nextLine());
-        System.out.println(atributoNome);
         return atributoNome;
     }
 
