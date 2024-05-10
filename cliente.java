@@ -8,4 +8,10 @@ public class cliente {
 	String CPF;
 	String cidade, estado, bairro, rua;
 	int num_logra;	
+	
+	public void listarNome(cliente[] cliente, int quanti) {
+		for(int i=0;i<quanti;i++) {
+			System.out.println(cliente[i].nome);
+		}
+	}
 }
