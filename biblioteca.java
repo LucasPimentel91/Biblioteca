@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class biblioteca {
     private static int MAX = 3;
 
-
     public static int cabecalho() {
         Scanner get = new Scanner(System.in);
         System.out.println("--------------------------");
@@ -46,10 +45,15 @@ public class biblioteca {
 
     public static void cadastrarLivro(){
         Livro livro = new Livro();
-        livro.setTitulo(livro.cadastrarAtributos("titulo"));
-        livro.setAutor(livro.cadastrarAtributos("autor"));
-        livro.setNumPaginas(livro.cadastrarAtributoNumericos("Número de páginas"));
-        livro.setId(livro.cadastrarAtributoNumericos("Id do livro"));
+        //livro.setTitulo(livro.cadastrarAtributos("titulo"));
+        //livro.setAutor(livro.cadastrarAtributos("autor"));
+        //livro.setNumPaginas(livro.cadastrarAtributoNumericos("Número de páginas"));
+        //livro.setId(livro.cadastrarAtributoNumericos("Id do livro"));
+        livro.setTitulo();
+        livro.setAutor();
+        livro.setNumPaginas();
+        livro.setId();
+        livro.mostrarLivroCadastrado();
 
     }
 
