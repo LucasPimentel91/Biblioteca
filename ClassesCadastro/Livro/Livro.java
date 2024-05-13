@@ -1,10 +1,9 @@
-package projeto_tomorrow;
+package projeto_tomorrow.ClassesCadastro.Livro;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import java.util.Scanner;
-
-public class Livro {
+public class Livro extends LivrosSecao{
     private String titulo;
     private String autor;
     private int numPaginas;
@@ -39,5 +38,21 @@ public class Livro {
         return atributoNome;
     }
 
+    @Override
+    public void setSecao(ArrayList<String> arr){
 
+        Scanner get = new Scanner(System.in);
+        System.out.println("A qual seção pertence este livro: ");
+        String nomeSecao = get.next();
+
+        if(validarSecao(arr, nomeSecao) == true){
+            this.secao = nomeSecao;
+        } else{
+            System.out.println("Seção não existe!!!");
+            System.out.println("Seções disponíveis: ");
+            for(String secao : arr){
+                System.out.println(secao);
+            }
+        }
+    }
 }

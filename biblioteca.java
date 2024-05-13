@@ -1,11 +1,16 @@
 package projeto_tomorrow;
 
-import projeto_tomorrow.cliente;
+import projeto_tomorrow.ClassesCadastro.Livro.Livro;
+import projeto_tomorrow.ClassesCadastro.Cliente.cliente;
+import projeto_tomorrow.ClassesCadastro.Livro.LivrosSecao;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class biblioteca {
+    static ArrayList<String> secoes = new ArrayList<>(); // array para salvar as seções dos livros
+
     private static int MAX = 3;
 
 
@@ -50,7 +55,11 @@ public class biblioteca {
         livro.setAutor(livro.cadastrarAtributos("autor"));
         livro.setNumPaginas(livro.cadastrarAtributoNumericos("Número de páginas"));
         livro.setId(livro.cadastrarAtributoNumericos("Id do livro"));
-
+        livro.setSecao(secoes);
+    }
+    public static void cadastrarSecao(){
+        LivrosSecao secao = new LivrosSecao();
+        secao.setSecao(secoes);
     }
 
     public static void main(String[] args) {
@@ -64,9 +73,10 @@ public class biblioteca {
                 break;
             } else if(resposta == 1){
                 cadastroCliente(cliente, qtdCliente);
-
             } else if(resposta ==  2){
                 cadastrarLivro();
+            } else if(resposta == 3){
+                cadastrarSecao();
             } else{
                 return;
             }
