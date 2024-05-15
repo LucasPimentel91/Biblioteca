@@ -8,10 +8,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class biblioteca {
+public class Biblioteca {
     static ArrayList<String> secoes = new ArrayList<String>(Arrays.asList("Romance", "Didático"));
     static ArrayList<Livro> salvaLivros = new ArrayList<>();// array para salvar as seções dos livros
-    static ArrayList<cliente> salvaCliente = new ArrayList<>();// array para salvar os clientes
 
     private static int MAX = 3;
 
@@ -24,18 +23,39 @@ public class biblioteca {
         System.out.println("--------------------------");
         System.out.println("--------------------------");
         System.out.println("0. Sair");
-        System.out.println("1. Cadastrar Cliente");
-        System.out.println("2. Cadastrar Livro");
-        System.out.println("3. Cadastrar Seção");
-        System.out.println("4. Listar livros livros cadastrados");
-        System.out.println("5. Listar seções Cadastradas");
+        System.out.println("1. Cadastros");
+        System.out.println("2. Listagens");
+        System.out.println("3. Localizar");
+        System.out.println("--------------------------");
+        return get.nextInt();
+    }
+    public static int actionsCadastros(){
+        Scanner get = new Scanner(System.in);
+        System.out.println("--------------------------");
+        System.out.println("--------------------------");
+        System.out.println(" ".repeat(5)+"0. Sair");
+        System.out.println(" ".repeat(5)+"1. Cadastrar Cliente");
+        System.out.println(" ".repeat(5)+"2. Cadastrar Livro");
+        System.out.println("--------------------------");
+        return get.nextInt();
+    }
+    public static int actionsListagem(){
+        Scanner get = new Scanner(System.in);
+        System.out.println("--------------------------");
+        System.out.println("--------------------------");
+        System.out.println("\tBIBLIOTECA");
+        System.out.println("--------------------------");
+        System.out.println("--------------------------");
+        System.out.println(" ".repeat(5)+"0. Sair");
+        System.out.println(" ".repeat(5)+"1. Listar livros livros cadastrados");
+        System.out.println(" ".repeat(5)+"2. Listar seções Cadastradas");
         System.out.println("--------------------------");
         return get.nextInt();
     }
 
     public static void cadastroCliente(cliente[] cliente, int qtdCliente) {
         Scanner texto = new Scanner(System.in);
-        cliente cliente = new cliente();
+        cliente[qtdCliente] = new cliente();
         System.out.println("Digite o nome: ");
         cliente[qtdCliente].nome = texto.nextLine();
         System.out.println("Digite a data de nascimento (dd/mm/aaaa): ");
@@ -47,7 +67,6 @@ public class biblioteca {
         cliente[qtdCliente].telefone = texto.nextLine();
         System.out.println("Digite o CPF (sem pontos e hífen): ");
         cliente[qtdCliente].CPF = texto.nextLine();
-        salvaCliente.add(cliente);
 
         texto.close();
     }
@@ -98,16 +117,24 @@ public class biblioteca {
             if(resposta == 0){
                 break;
             } else if(resposta == 1){
-                cadastroCliente(cliente, qtdCliente);
-            } else if(resposta ==  2){
-                cadastrarLivro();
-            } else if(resposta == 3){
-                cadastrarSecao();
-            } else if(resposta == 4){
-                listarLivros(salvaLivros);
-            } else if(resposta == 5){
-                listarSecoes(secoes);
+                int rsp= actionsCadastros();
+                if(rsp == 0){
+                    cabecalho();
+                } else if (rsp == 1){
+                    cadastroCliente(cliente, qtdCliente);
+                } else if(rsp == 2){
+                    cadastrarLivro();
+                }
+        } else if(resposta == 2){
+                int rsp= actionsListagem();
+                if(rsp == 0){
+                    cabecalho();
+                } else if (rsp == 1){
+                    listarLivros(salvaLivros);
+                } else if(rsp == 2){
+                    listarSecoes(secoes);
+                }
             }
-        }
+    }
     }
 }
