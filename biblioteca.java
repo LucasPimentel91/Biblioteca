@@ -52,6 +52,15 @@ public class biblioteca {
         texto.close();
     }
 
+    public static void listarClientes(ArrayList<cliente> arr){
+        for(cliente cliente:arr){
+            System.out.println("Nome: " + cliente.getNome());
+            System.out.println("CPF: " + cliente.getCPF());
+            System.out.println("Telefone de contato: " + cliente.getTelefone());
+            System.out.println("-".repeat(40));
+        }
+    }
+
     public static void cadastrarLivro(){
         Livro livro = new Livro();
         livro.setTitulo(livro.cadastrarAtributos("titulo"));

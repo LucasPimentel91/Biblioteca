@@ -1,5 +1,7 @@
 package projeto_tomorrow.ClassesCadastro.Cliente;
 
+import java.util.ArrayList;
+
 public class cliente {
 	public String nome;
 	public String dataNascimento;
@@ -13,12 +15,23 @@ public class cliente {
 		this.sexo = sexo;
 		this.telefone = fone;
 		this.CPF=cpf;
-
 	}
 
-	public void listarNome(cliente[] cliente, int quanti) {
-		for(int i=0;i<quanti;i++) {
-			System.out.println(cliente[i].nome);
+	public String getNome(){
+		return nome;
+	}
+
+	public String getCPF(){
+		return CPF;
+	}
+
+	public String getTelefone(){
+		return telefone;
+	}
+
+	public void listarCliente(ArrayList<String> arr) {
+		for(String nome: arr) {
+			System.out.printf(nome);
 		}
 	}
 }
