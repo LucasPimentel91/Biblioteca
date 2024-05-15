@@ -1,5 +1,7 @@
 package projeto_tomorrow;
 
+import Validacoes.ValidaCPF;
+
 import projeto_tomorrow.ClassesCadastro.Livro.Livro;
 import projeto_tomorrow.ClassesCadastro.Cliente.cliente;
 import projeto_tomorrow.ClassesCadastro.Livro.LivrosSecao;
@@ -33,21 +35,57 @@ public class biblioteca {
     public static void cadastroCliente(cliente[] cliente, int qtdCliente) {
         Scanner texto = new Scanner(System.in);
         cliente[qtdCliente] = new cliente();
-        System.out.println("Digite o nome: ");
-        cliente[qtdCliente].nome = texto.nextLine();
-        System.out.println("Digite a data de nascimento (dd/mm/aaaa): ");
-        cliente[qtdCliente].dataNascimento = texto.nextLine();
-        System.out.println("Digite o sexo (m- masculino/f- feminino)");
-        cliente[qtdCliente].sexo = texto.nextLine();
-        System.out.println("Digite o telefone de contato:");
+
+        boolean chave_nome = false;
+        do{
+            System.out.println("Digite o nome: ");
+            System.out.println("OBS: o nome não deve conter sinais de acentuação.");
+            cliente[qtdCliente].nome = texto.nextLine();
+
+            if(cliente.nome.matches("[a-zA-Z]")){
+                chave_nome = true;
+            }
+            else{
+                System.out.println("Erro. O nome deve conter apenas letras. Por favor, digite novamente.");
+            }
+        }while(chave_nome == false);
+
+        /*System.out.println("Digite a data de nascimento (dd/mm/aaaa): ");
+        cliente.dataNascimento = texto.nextLine();*/
+
+        boolean chave_sexo = false;
+        do{
+            System.out.println("Digite o sexo (m- masculino/f- feminino)");
+            cliente.sexo = texto.nextLine();
+
+            if(cliente.sexo == "f" || cliente.sexo == "m" ){
+                chave_sexo = true;
+            }
+            else{
+                System.out.println("Erro. Por favor, digite novamente.");
+            }
+
+        }while(chave_sexo == false);
+
+       /* System.out.println("Digite o telefone de contato:");
         System.out.println("OBS: (DDD)9xxxx-xxxx");
-        cliente[qtdCliente].telefone = texto.nextLine();
+        cliente.telefone = texto.nextLine();*/
+
+    boolean chave_CPF = false;
+    do{
         System.out.println("Digite o CPF (sem pontos e hífen): ");
-        cliente[qtdCliente].CPF = texto.nextLine();
+        cliente.CPF = texto.nextLine();
 
-        texto.close();
-    }
+        if (ValidoCPF.isCPF(cliente.CPF) == true){
+            chave_CPF = true;
+        }
+        else{
+            System.out.printf("Erro, CPF invalido. Por favor, insira novamente.\n")
+        }
 
+
+    }while(chave_CPF == false);
+    texto.close();
 
     public static void cadastrarLivro(){
         Livro livro = new Livro();
