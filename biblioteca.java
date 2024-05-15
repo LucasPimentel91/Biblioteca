@@ -1,15 +1,16 @@
 package projeto_tomorrow;
 
-import projeto_tomorrow.ClassesCadastro.Livro.Livro;
+import projeto_tomorrow.ClassesCadastro.livro.Livro;
 import projeto_tomorrow.ClassesCadastro.Cliente.cliente;
-import projeto_tomorrow.ClassesCadastro.Livro.LivrosSecao;
+import projeto_tomorrow.ClassesCadastro.livro.LivrosSecao;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class biblioteca {
-    static ArrayList<String> secoes = new ArrayList<>(); // array para salvar as seções dos livros
+    static ArrayList<String> secoes = new ArrayList<String>(Arrays.asList("Romance", "Didático"));
+    static ArrayList<Livro> salvaLivros = new ArrayList<>();// array para salvar as seções dos livros
 
     private static int MAX = 3;
 
@@ -25,7 +26,8 @@ public class biblioteca {
         System.out.println("1. Cadastrar Cliente");
         System.out.println("2. Cadastrar Livro");
         System.out.println("3. Cadastrar Seção");
-        System.out.println("4. Listar");
+        System.out.println("4. Listar livros livros cadastrados");
+        System.out.println("5. Listar seções Cadastradas");
         System.out.println("--------------------------");
         return get.nextInt();
     }
@@ -48,7 +50,6 @@ public class biblioteca {
         texto.close();
     }
 
-
     public static void cadastrarLivro(){
         Livro livro = new Livro();
         livro.setTitulo(livro.cadastrarAtributos("titulo"));
@@ -56,10 +57,24 @@ public class biblioteca {
         livro.setNumPaginas(livro.cadastrarAtributoNumericos("Número de páginas"));
         livro.setId(livro.cadastrarAtributoNumericos("Id do livro"));
         livro.setSecao(secoes);
+        salvaLivros.add(livro);
     }
     public static void cadastrarSecao(){
         LivrosSecao secao = new LivrosSecao();
         secao.setSecao(secoes);
+    }
+    private static void listarLivros(ArrayList<Livro> arr) {
+        for(Livro livro:arr){
+            System.out.println("Livro: "+ livro.getTitulo());
+            System.out.println("Autor: " + livro.getAutor());
+            System.out.println("Seção: " + livro.getSecao());
+            System.out.println("-".repeat(40));
+        }
+    }
+    private static void listarSecoes(ArrayList<String> arr){
+        for(String secao: secoes){
+            System.out.println(secao);
+        }
     }
 
     public static void main(String[] args) {
@@ -77,8 +92,10 @@ public class biblioteca {
                 cadastrarLivro();
             } else if(resposta == 3){
                 cadastrarSecao();
-            } else{
-                return;
+            } else if(resposta == 4){
+                listarLivros(salvaLivros);
+            } else if(resposta == 5){
+                listarSecoes(secoes);
             }
         }
     }

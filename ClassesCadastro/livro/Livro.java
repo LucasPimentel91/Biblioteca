@@ -1,9 +1,9 @@
-package projeto_tomorrow.ClassesCadastro.Livro;
+package projeto_tomorrow.ClassesCadastro.livro;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Livro extends LivrosSecao{
+public class Livro extends LivrosSecao {
     private String titulo;
     private String autor;
     private int numPaginas;
@@ -21,21 +21,8 @@ public class Livro extends LivrosSecao{
         return this.numPaginas = numPaginas;
     }
 
-    public int setId(int id){
-        return this.id = id;
-    }
-
-    public String cadastrarAtributos(String atributo){
-        Scanner get = new Scanner(System.in);
-        System.out.print(atributo + " do livro: ");
-        String atributoNome = get.nextLine();
-        return atributoNome;
-    }
-    public int cadastrarAtributoNumericos(String atributo){
-        Scanner get = new Scanner(System.in);
-        System.out.print(atributo + " do livro: ");
-        int atributoNome = Integer.parseInt(get.nextLine());
-        return atributoNome;
+    public int setId(int idDoLivro){
+        return id;
     }
 
     @Override
@@ -54,5 +41,39 @@ public class Livro extends LivrosSecao{
                 System.out.println(secao);
             }
         }
+    }
+
+    public String getTitulo(){
+        return titulo;
+    }
+
+    public String getAutor(){
+        return autor;
+    }
+
+    public int getNumPaginas(){
+        return numPaginas;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public String getSecao(){
+        return secao;
+    }
+
+    public String cadastrarAtributos(String atributo){
+        Scanner get = new Scanner(System.in);
+        System.out.print(atributo + " do livro: ");
+        String atributoNome = get.nextLine();
+        return atributoNome;
+    }
+
+    public int cadastrarAtributoNumericos(String atributo){
+        Scanner get = new Scanner(System.in);
+        System.out.print(atributo + " do livro: ");
+        int atributoNome = Integer.parseInt(get.nextLine());
+        return atributoNome;
     }
 }

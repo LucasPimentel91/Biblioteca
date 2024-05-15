@@ -7,7 +7,7 @@ public class cliente {
 	public String telefone;
 	public String CPF;
 	public String cidade, estado, bairro, rua;
-	int num_logra;	
+
 	
 	public void listarNome(cliente[] cliente, int quanti) {
 		for(int i=0;i<quanti;i++) {

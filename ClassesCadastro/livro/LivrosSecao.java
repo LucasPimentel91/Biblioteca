@@ -1,7 +1,6 @@
-package projeto_tomorrow.ClassesCadastro.Livro;
+package projeto_tomorrow.ClassesCadastro.livro;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
