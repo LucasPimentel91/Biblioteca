@@ -1,6 +1,6 @@
-package projeto_tomorrow;
+package projeto_tomorrow.Cliente;
 
-public class cliente {
+public class Cliente {
 	String nome;
 	String dataNascimento;
 	String sexo;
@@ -9,7 +9,7 @@ public class cliente {
 	String cidade, estado, bairro, rua;
 	int num_logra;	
 	
-	public void listarNome(cliente[] cliente, int quanti) {
+	public void listarNome(Cliente[] cliente, int quanti) {
 		for(int i=0;i<quanti;i++) {
 			System.out.println(cliente[i].nome);
 		}
