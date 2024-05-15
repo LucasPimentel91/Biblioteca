@@ -1,4 +1,4 @@
-package projeto_tomorrow;
+package Biblioteca;
 
 import projeto_tomorrow.ClassesCadastro.livro.Livro;
 import projeto_tomorrow.ClassesCadastro.Cliente.cliente;
@@ -53,20 +53,72 @@ public class Biblioteca {
         return get.nextInt();
     }
 
-    public static void cadastroCliente(cliente[] cliente, int qtdCliente) {
+    public static void cadastroCliente() {
         Scanner texto = new Scanner(System.in);
         cliente cliente = new cliente();
+
+        // Cadastrar nome:
+        boolean chave_nome = false;
+    do {
         System.out.println("Digite o nome: ");
+        System.out.println("OBS: o nome não deve conter sinais de acentuação.");
         cliente.nome = texto.nextLine();
-        System.out.println("Digite a data de nascimento (dd/mm/aaaa): ");
-        cliente.dataNascimento = texto.nextLine();
-        System.out.println("Digite o sexo (m- masculino/f- feminino)");
-        cliente.sexo = texto.nextLine();
+
+        if (cliente.nome.matches("[a-zA-Z]")) {
+            chave_nome = true;
+        } else {
+            System.out.println("Erro. O nome deve conter apenas letras. Por favor, digite novamente.");
+        }
+    } while (chave_nome == false);
+
+
+        // CADASTRAR DATA DE NASCIMENTO:
+        boolean chave_data = false;
+        do {
+            System.out.println("Digite a data de nascimento (dd/mm/aaaa): ");
+            cliente.dataNascimento = texto.nextLine();
+    
+            if (validaData(cliente.dataNascimento) && dataMenorQueHoje(cliente.dataNascimento) <= 0) {
+                chave_data = true;
+            } else {
+                System.out.println("Erro, data de nascimento invalida. Por favor, insira novamente.\n");
+            }
+    
+        } while (chave_data == false);
+    
+        //CADASTRAR SEXO:
+        boolean chave_sexo = false;
+        do {
+            System.out.println("Digite o sexo (m- masculino/f- feminino)");
+            cliente.sexo = texto.nextLine();
+    
+            if (cliente.sexo == "f" || cliente.sexo == "m") {
+                chave_sexo = true;
+            } else {
+                System.out.println("Erro. Por favor, digite novamente.");
+            }
+    
+        } while (chave_sexo == false);
+    
+        // CADASTRAR TELEFONE:
         System.out.println("Digite o telefone de contato:");
         System.out.println("OBS: (DDD)9xxxx-xxxx");
         cliente.telefone = texto.nextLine();
+
+        // CADASTRAR CPF:
+        boolean chave_CPF = false;
+        do{ 
+        ValidaCPF cpf = new ValidaCPF();
         System.out.println("Digite o CPF (sem pontos e hífen): ");
-        cliente.CPF = texto.nextLine();
+        String dado = texto.nextLine();
+        if(cpf.validoCPF(dado) == true){
+            cliente.CPF = dado;
+            chave_CPF = true;
+        }else{
+            System.out.println("CPF inválido! Tente novamente.");
+
+        }
+    }while(chave_CPF = false);
         salvaCliente.add(cliente);
         texto.close();
     }
