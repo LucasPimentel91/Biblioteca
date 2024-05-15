@@ -33,5 +33,8 @@ public class cliente {
 	public String getTelefone(){
 		return telefone;
 	}
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 }
