@@ -8,6 +8,8 @@ public class cliente {
 	public String sexo;
 	public String telefone;
 	public String CPF;
+	static ArrayList<String> LivroEmprestado = new ArrayList<>();
+
 
 	public void cadastrarCliente(String nome, String data, String sexo, String fone, String cpf){
 		this.nome = nome;
@@ -17,6 +19,9 @@ public class cliente {
 		this.CPF=cpf;
 	}
 
+	public void emprestar(ArrayList<String> LivroEmprestado){
+		LivroEmprestado.add(String);
+	}
 	public String getNome(){
 		return nome;
 	}
@@ -27,11 +32,5 @@ public class cliente {
 
 	public String getTelefone(){
 		return telefone;
-	}
-
-	public void listarCliente(ArrayList<String> arr) {
-		for(String nome: arr) {
-			System.out.printf(nome);
-		}
 	}
 }
