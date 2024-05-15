@@ -76,7 +76,7 @@ public class biblioteca {
         System.out.println("Digite o CPF (sem pontos e hífen): ");
         cliente.CPF = texto.nextLine();
 
-        if (ValidoCPF.isCPF(cliente.CPF) == true){
+        if (validoCPF.isCPF(cliente.CPF) == true){
             chave_CPF = true;
         }
         else{
