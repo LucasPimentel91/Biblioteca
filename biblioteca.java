@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Biblioteca {
     static ArrayList<String> secoes = new ArrayList<String>(Arrays.asList("Romance", "Didático"));
     static ArrayList<Livro> salvaLivros = new ArrayList<>();// array para salvar as seções dos livros
-
+    static ArrayList<cliente> salvaCliente = new ArrayList<>();
     private static int MAX = 3;
 
 
@@ -55,19 +55,19 @@ public class Biblioteca {
 
     public static void cadastroCliente(cliente[] cliente, int qtdCliente) {
         Scanner texto = new Scanner(System.in);
-        cliente[qtdCliente] = new cliente();
+        cliente cliente = new cliente();
         System.out.println("Digite o nome: ");
-        cliente[qtdCliente].nome = texto.nextLine();
+        cliente.nome = texto.nextLine();
         System.out.println("Digite a data de nascimento (dd/mm/aaaa): ");
-        cliente[qtdCliente].dataNascimento = texto.nextLine();
+        cliente.dataNascimento = texto.nextLine();
         System.out.println("Digite o sexo (m- masculino/f- feminino)");
-        cliente[qtdCliente].sexo = texto.nextLine();
+        cliente.sexo = texto.nextLine();
         System.out.println("Digite o telefone de contato:");
         System.out.println("OBS: (DDD)9xxxx-xxxx");
-        cliente[qtdCliente].telefone = texto.nextLine();
+        cliente.telefone = texto.nextLine();
         System.out.println("Digite o CPF (sem pontos e hífen): ");
-        cliente[qtdCliente].CPF = texto.nextLine();
-
+        cliente.CPF = texto.nextLine();
+        salvaCliente.add(cliente);
         texto.close();
     }
 
@@ -105,6 +105,10 @@ public class Biblioteca {
         for(String secao: secoes){
             System.out.println(secao);
         }
+    }
+
+    private static void endereco(cliente cliente, Livro livro, LivrosSecao secao){
+
     }
 
     public static void main(String[] args) {
