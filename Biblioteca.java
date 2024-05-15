@@ -6,6 +6,7 @@ import projeto_tomorrow.ClassesCadastro.livro.LivrosSecao;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Biblioteca {
@@ -49,6 +50,16 @@ public class Biblioteca {
         System.out.println(" ".repeat(5)+"0. Sair");
         System.out.println(" ".repeat(5)+"1. Listar livros livros cadastrados");
         System.out.println(" ".repeat(5)+"2. Listar seções Cadastradas");
+        System.out.println("--------------------------");
+        return get.nextInt();
+    }
+    public static int actionsLocalizar(){
+        Scanner get = new Scanner(System.in);
+        System.out.println("--------------------------");
+        System.out.println("Localizar por: ");
+        System.out.println("1. Nome: ");
+        System.out.println("2. Seção: ");
+        System.out.println("3. Autor:");
         System.out.println("--------------------------");
         return get.nextInt();
     }
@@ -107,6 +118,55 @@ public class Biblioteca {
         }
     }
 
+    private static void localizarLivroNome(){
+        Scanner get = new Scanner(System.in);
+        System.out.println("Digite o nome do livro");
+        String nome = get.nextLine();
+        for(Livro livro: salvaLivros){
+          String titulo = livro.getTitulo();
+          if (Objects.equals(titulo, nome)){
+              System.out.println("-".repeat(40));
+              System.out.println("Livro: "+ livro.getTitulo());
+              System.out.println("Autor: " + livro.getAutor());
+              System.out.println("Seção: " + livro.getSecao());
+              System.out.println("-".repeat(40));
+          }
+        }
+    }
+
+    private static void localizarLivroSecao(){
+        Scanner get = new Scanner(System.in);
+        System.out.println("Digite o nome da seção do livro");
+        String nome = get.nextLine();
+        for(Livro livro: salvaLivros){
+            String titulo = livro.getSecao();
+            if (Objects.equals(titulo, nome)){
+                System.out.println("-".repeat(40));
+                System.out.println("Livro: "+ livro.getTitulo());
+                System.out.println("Autor: " + livro.getAutor());
+                System.out.println("Seção: " + livro.getSecao());
+                System.out.println("-".repeat(40));
+            }
+        }
+    }
+
+    private static void localizarLivroAutor(){
+        Scanner get = new Scanner(System.in);
+        System.out.println("Digite o nome do autor do livro");
+        String nome = get.nextLine();
+        for(Livro livro: salvaLivros){
+            String autor = livro.getAutor();
+            if (Objects.equals(autor, nome)){
+                System.out.println("-".repeat(40));
+                System.out.println("Livro: "+ livro.getTitulo());
+                System.out.println("Autor: " + livro.getAutor());
+                System.out.println("Seção: " + livro.getSecao());
+                System.out.println("-".repeat(40));
+                System.out.println("-".repeat(40));
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int num;
         int qtdCliente = 0;
@@ -133,6 +193,15 @@ public class Biblioteca {
                     listarLivros(salvaLivros);
                 } else if(rsp == 2){
                     listarSecoes(secoes);
+                }
+            } else if(resposta == 3){
+                int rsp = actionsLocalizar();
+                if(rsp == 1){
+                    localizarLivroNome();
+                } else if(rsp == 2){
+                    localizarLivroSecao();
+                } else if(rsp == 3){
+                    localizarLivroAutor();
                 }
             }
     }
