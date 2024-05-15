@@ -1,4 +1,4 @@
-package projeto_tomorrow.Validacoes;
+package projeto_tomorrow;
 
 import java.util.InputMismatchException;
 
