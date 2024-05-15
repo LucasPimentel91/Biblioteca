@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class biblioteca {
     static ArrayList<String> secoes = new ArrayList<String>(Arrays.asList("Romance", "Didático"));
     static ArrayList<Livro> salvaLivros = new ArrayList<>();// array para salvar as seções dos livros
+    static ArrayList<cliente> salvaCliente = new ArrayList<>();// array para salvar os clientes
 
     private static int MAX = 3;
 
@@ -34,7 +35,7 @@ public class biblioteca {
 
     public static void cadastroCliente(cliente[] cliente, int qtdCliente) {
         Scanner texto = new Scanner(System.in);
-        cliente[qtdCliente] = new cliente();
+        cliente cliente = new cliente();
         System.out.println("Digite o nome: ");
         cliente[qtdCliente].nome = texto.nextLine();
         System.out.println("Digite a data de nascimento (dd/mm/aaaa): ");
@@ -46,6 +47,7 @@ public class biblioteca {
         cliente[qtdCliente].telefone = texto.nextLine();
         System.out.println("Digite o CPF (sem pontos e hífen): ");
         cliente[qtdCliente].CPF = texto.nextLine();
+        salvaCliente.add(cliente);
 
         texto.close();
     }
