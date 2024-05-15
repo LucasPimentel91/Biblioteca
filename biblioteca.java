@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Biblioteca {
     static ArrayList<String> secoes = new ArrayList<String>(Arrays.asList("Romance", "Didático"));
-    static ArrayList<Livro> salvaLivros = new ArrayList<>();// array para salvar as seções dos livros
+    static ArrayList<Livro> salvaLivros = new ArrayList<>();
 
     private static int MAX = 3;
 
@@ -57,6 +57,7 @@ public class Biblioteca {
         Scanner get = new Scanner(System.in);
         System.out.println("--------------------------");
         System.out.println("Localizar por: ");
+        System.out.println("0. Sair");
         System.out.println("1. Nome: ");
         System.out.println("2. Seção: ");
         System.out.println("3. Autor:");
@@ -121,9 +122,9 @@ public class Biblioteca {
     private static void localizarLivroNome(){
         Scanner get = new Scanner(System.in);
         System.out.println("Digite o nome do livro");
-        String nome = get.nextLine();
+        String nome = get.nextLine().toLowerCase();
         for(Livro livro: salvaLivros){
-          String titulo = livro.getTitulo();
+          String titulo = livro.getTitulo().toLowerCase();
           if (Objects.equals(titulo, nome)){
               System.out.println("-".repeat(40));
               System.out.println("Livro: "+ livro.getTitulo());
@@ -137,9 +138,9 @@ public class Biblioteca {
     private static void localizarLivroSecao(){
         Scanner get = new Scanner(System.in);
         System.out.println("Digite o nome da seção do livro");
-        String nome = get.nextLine();
+        String nome = get.nextLine().toLowerCase();
         for(Livro livro: salvaLivros){
-            String titulo = livro.getSecao();
+            String titulo = livro.getSecao().toLowerCase();
             if (Objects.equals(titulo, nome)){
                 System.out.println("-".repeat(40));
                 System.out.println("Livro: "+ livro.getTitulo());
@@ -153,9 +154,9 @@ public class Biblioteca {
     private static void localizarLivroAutor(){
         Scanner get = new Scanner(System.in);
         System.out.println("Digite o nome do autor do livro");
-        String nome = get.nextLine();
+        String nome = get.nextLine().toLowerCase();
         for(Livro livro: salvaLivros){
-            String autor = livro.getAutor();
+            String autor = livro.getAutor().toLowerCase();
             if (Objects.equals(autor, nome)){
                 System.out.println("-".repeat(40));
                 System.out.println("Livro: "+ livro.getTitulo());
@@ -202,6 +203,8 @@ public class Biblioteca {
                     localizarLivroSecao();
                 } else if(rsp == 3){
                     localizarLivroAutor();
+                } else if(rsp == 0){
+                    cabecalho();
                 }
             }
     }
