@@ -127,7 +127,7 @@ do {
     if (!matcher1.find())
         chave_tele= false;
 
-} while (!chave_tele);
+} while(!chave_tele);
 
         // CADASTRAR CPF:
         boolean chave_CPF = false;
