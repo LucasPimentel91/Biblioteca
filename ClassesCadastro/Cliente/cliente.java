@@ -1,4 +1,4 @@
-package Biblioteca.ClassesCadastro.Cliente;
+package projeto_tomorrow.ClassesCadastro.Cliente;
 
 import java.util.ArrayList;
 
@@ -19,9 +19,10 @@ public class cliente {
 		this.CPF=cpf;
 	}
 
-	public void emprestar(ArrayList<String> LivroEmprestado){
+	/*public void emprestar(ArrayList<String> LivroEmprestado){
 		LivroEmprestado.add(String);
-	}
+	}*/
+
 	public String getNome(){
 		return nome;
 	}

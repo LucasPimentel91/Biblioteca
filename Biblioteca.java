@@ -1,5 +1,7 @@
-package Biblioteca;
+package projeto_tomorrow;
 
+
+import projeto_tomorrow.Autenticacao.ValidaCPF;
 import projeto_tomorrow.ClassesCadastro.livro.Livro;
 import projeto_tomorrow.ClassesCadastro.Cliente.cliente;
 import projeto_tomorrow.ClassesCadastro.livro.LivrosSecao;
@@ -61,7 +63,6 @@ public class Biblioteca {
         boolean chave_nome = false;
     do {
         System.out.println("Digite o nome: ");
-        System.out.println("OBS: o nome não deve conter sinais de acentuação.");
         cliente.nome = texto.nextLine();
 
         if (cliente.nome.matches("[a-zA-Z]")) {
@@ -69,11 +70,11 @@ public class Biblioteca {
         } else {
             System.out.println("Erro. O nome deve conter apenas letras. Por favor, digite novamente.");
         }
-    } while (chave_nome == false);
+    } while (!chave_nome);
 
 
         // CADASTRAR DATA DE NASCIMENTO:
-        boolean chave_data = false;
+        /*boolean chave_data = false;
         do {
             System.out.println("Digite a data de nascimento (dd/mm/aaaa): ");
             cliente.dataNascimento = texto.nextLine();
@@ -85,7 +86,7 @@ public class Biblioteca {
             }
     
         } while (chave_data == false);
-    
+    */
         //CADASTRAR SEXO:
         boolean chave_sexo = false;
         do {
@@ -177,7 +178,7 @@ public class Biblioteca {
                 if(rsp == 0){
                     cabecalho();
                 } else if (rsp == 1){
-                    cadastroCliente(cliente, qtdCliente);
+                    cadastroCliente();
                 } else if(rsp == 2){
                     cadastrarLivro();
                 }
