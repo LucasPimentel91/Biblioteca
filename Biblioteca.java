@@ -1,14 +1,16 @@
 package projeto_tomorrow;
 
 
-import projeto_tomorrow.Autenticacao.ValidaCPF;
-import projeto_tomorrow.ClassesCadastro.livro.Livro;
-import projeto_tomorrow.ClassesCadastro.Cliente.cliente;
-import projeto_tomorrow.ClassesCadastro.livro.LivrosSecao;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import Autenticacao.ValidaCPF;
+import ClassesCadastro.Cliente.cliente;
+import ClassesCadastro.livro.Livro;
+import ClassesCadastro.livro.LivrosSecao;
 
 public class Biblioteca {
     static ArrayList<String> secoes = new ArrayList<String>(Arrays.asList("Romance", "Didático"));
@@ -114,9 +116,18 @@ public class Biblioteca {
         } while (chave_sexo == false);
     
         // CADASTRAR TELEFONE:
-        System.out.println("Digite o telefone de contato:");
-        System.out.println("OBS: (DDD)9xxxx-xxxx");
-        cliente.telefone = texto.nextLine();
+boolean chave_tele;
+do {
+    chave_tele = true;
+    System.out.println("Digite o telefone de contato:");
+    System.out.println("OBS: (DDD)9xxxx-xxxx");
+    cliente.telefone = texto.nextLine();
+    Pattern pattern1 = Pattern.compile("^[(][0-9]{3}[)]9[0-9]{4}-[0-9]{4}$");
+    Matcher matcher1 = pattern1.matcher(cliente.telefone);
+    if (!matcher1.find())
+        chave_tele= false;
+
+} while (!chave_tele);
 
         // CADASTRAR CPF:
         boolean chave_CPF = false;
