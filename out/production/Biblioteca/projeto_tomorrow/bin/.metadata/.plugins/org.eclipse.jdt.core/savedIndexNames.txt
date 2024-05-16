@@ -1,0 +1,1 @@
+INDEX VERSION 1.134+C:\Users\plact\eclipse-workspace\projeto_tomorrow\src\projeto_tomorrow\.metadata\.plugins\org.eclipse.jdt.core
